@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Allocated Desks</title>
+	</head>
+	<body>
+		<h1>Hi, {{ user.nickname}}! </h1>
+		
+		<table frame=box rules=ALL borger="5" >
+			<THEAD>
+				<TR>
+					<TD>Floor Number
+					<TD>Free Seat Number
+					<TD>Free Date
+					<TD>Comments
+			<THEAD>
+			<TBODY>
+				{ % for desk in allocatedDesk % }
+				<TR>
+					<THEAD>{{desk.floor }}
+					<THEAD>{{desk.deskno }}
+					<THEAD>{{desk.free_node }}
+					<THEAD>{{desk.remark }}
+				{ % endfor % }
+			</TBODY>
+		</TABLE><BR>
+		{ %include 'common.html' }

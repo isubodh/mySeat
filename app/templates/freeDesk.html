@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Available Desks</title>
+	</head>
+	<body>
+		<h1>Hi, {{ user.nickname}}! </h1>
+		
+		<table frame=box rules=ALL borger="5" >
+			<THEAD>
+				<TR>
+					<TD>Select
+					<TD>Floor Number
+					<TD>Free Seat Number
+					<TD>Free Date
+					<TD>Comments
+			<THEAD>
+			<TBODY>
+			<FORM action="/bookedDesk" method="POAT">
+				{ % for desk in hotdesks % }
+				<TR>
+					<TD><BUTTON type="submit" name="bookedDesk" value={{desk.rowid}}>Book it</Button>
+					<TD>{{desk.floor }}
+					<TD>{{desk.deskno }}
+					<TD>{{desk.free_node }}
+					<TD>{{desk.remark }}
+				{ % endfor % }
+			<FORM>
+			</TBODY>
+		</TABLE><BR>
+		{ %include 'common.html' }

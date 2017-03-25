@@ -1,0 +1,12 @@
+<html>
+	<head>
+		<title>Welcome to HotDeskApp</title>
+	</head>
+	<body>
+		<h1>Hi, {{ user.nickname}}! </h1>
+		
+		<div><p>Thanks for adding your desk <B>{{ Desk.deskno }}</B>
+		to HotDesk Pool on <B>{{ Desk.ondate }}</B><BR><BR>
+		</p></div>
+		
+		{ %include 'common.html' }

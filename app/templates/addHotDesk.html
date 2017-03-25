@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>HotDeskApp Add Seat</title>
+	</head>
+	<body>
+		<h1>Hi, {{ user.nickname}}! </h1>
+		
+		<div><p>Good choise that you decided to add your desk to the HotDesk Pool</p></div>
+		<FORM name="confirmAddDesk" action="/confirmAddDesk" method="POST" onsubmit="return verifyAddDeskForm()"
+		{{ form.hidden_tag() }}
+			<FIELDSET>
+				<BR>Please enter date in DD/MM/YYYY format <BR>
+				<BR>Your desk is free on 	: {{form.indate(size=10)}}
+				<BR>Your desk is on floor 	: {{form.infloor(size=2)}}
+				<BR>Your desk number is 	: {{form.indeskno(size=4)}}
+				<BR>Any comments to add 	: {{form.inremark()}}
+				<BR>{{form.submit}}
+			</FIELDSET>
+		
+		{ %include 'common.html' }
