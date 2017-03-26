@@ -14,13 +14,13 @@
 					<TD>Comments
 			<THEAD>
 			<TBODY>
-				{ % for desk in allocatedDesk % }
+				{% for desk in allocatedDesk %}
 				<TR>
 					<THEAD>{{desk.floor }}
 					<THEAD>{{desk.deskno }}
 					<THEAD>{{desk.free_node }}
 					<THEAD>{{desk.remark }}
-				{ % endfor % }
+				{% endfor %}
 			</TBODY>
 		</TABLE><BR>
-		{ %include 'common.html' }
+		{% include 'common.html' %}

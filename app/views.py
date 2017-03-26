@@ -1,5 +1,5 @@
 from flask import render_template
-form flask import request
+from flask import request
 from app import app
 from .forms import addSeatForm
 import HotDeskDAO as dao
@@ -15,8 +15,8 @@ def freeDesk():
 	user = {'nickname' : 'Subodh'} ##fake user
 	hotdesks = dao.findAllDesk()
 	if hotdesks:
-		return render_template("freeDesk.html", user=user, hotdesk=hotdesks)
-	else
+		return render_template("freeDesk.html", user=user, hotdesks=hotdesks)
+	else:
 		return '''<HTML><TITLE>No HotDesk</TITLE><BODY>Sorry ! 
 			No Hot Desk available as of now<BR><A href="/">HotDesk App</A>
 			</BODY></HTML>'''
@@ -24,17 +24,18 @@ def freeDesk():
 @app.route('/bookedDesk', methods=['GET', 'POST'])
 def bookedDesk():
 	user = {'nickname' : 'Subodh'} ##fake user]
-	allocatedDesk = dao.allocatedDesk()
+	allocatedDesk = dao.allocateDesk()
 	if not allocatedDesk:
 		return '''<HTML><TITLE>No HotDesk</TITLE><BODY>Sorry ! 
 			No HotDesk allocated as of now<BR><A href="/">HotDesk App</A>
 			</BODY></HTML>'''
-	else
-		return  render_template("DesksAllocated.html", user=user, allocatedDesk=allocatedDesk)
+	else:
+		return  render_template("bookedDesk.html", user=user, allocatedDesk=allocatedDesk)
 		
 @app.route('/addHotDesk')
-	user = {'nickname' : 'Subodh'} ##fake user]
-	addDesk = addSearForm()
+def addHotDesk():
+	user = {'nickname' : 'Subodh'} ##fake user
+	addDesk = addSeatForm()
 	return render_template("addHotDesk.html", user=user, form=addDesk)
 	
 @app.route('/confirmAddDesk', methods=['GET', 'POST'])
@@ -50,5 +51,5 @@ def confirmAddDesk():
 		dao.AddDesk( Desk['floor'], Desk['deskno'], Desk['ondate'], Desk['remark'])	
 		return render_template("confrimAddDesk.html", user=user, Desk=Desk)
 	else:
-		return render_template("addHotDesk.html", user=user, form=addDesk)
+		return render_template("addHotDesk.html", user=user, form=form)
 		

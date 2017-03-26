@@ -15,16 +15,16 @@
 					<TD>Comments
 			<THEAD>
 			<TBODY>
-			<FORM action="/bookedDesk" method="POAT">
-				{ % for desk in hotdesks % }
+			<FORM action="/bookedDesk" method="POST">
+				{% for desk in hotdesks %}
 				<TR>
-					<TD><BUTTON type="submit" name="bookedDesk" value={{desk.rowid}}>Book it</Button>
-					<TD>{{desk.floor }}
-					<TD>{{desk.deskno }}
-					<TD>{{desk.free_node }}
-					<TD>{{desk.remark }}
-				{ % endfor % }
+					<TD><BUTTON type="submit" name="bookedDesk" value={{ desk.rowid }}>Book it</Button>
+					<TD>{{ desk.floor }}
+					<TD>{{ desk.deskno }}
+					<TD>{{ desk.free_date }}
+					<TD>{{ desk.remark }}
+				{% endfor %}
 			<FORM>
 			</TBODY>
 		</TABLE><BR>
-		{ %include 'common.html' }
+		{% include 'common.html' %}

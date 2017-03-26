@@ -5,14 +5,14 @@
 	<body>
 		<h1>Hi, {{ user.nickname}}! </h1>
 		Thanks for bookign HotDesk
-		{ % for desk in bookedDesk }
+		{% for desk in allocatedDesk %}
 		<BR>
 		<div>on floor :<B> {{desk.floor}}</B><BR>
 		on Seat :<B> {{desk.deskno}}</B><BR>
 		on Date :<B> {{desk.free_date}}</B><BR>
 		with commnets :<B> {{desk.remark}}</B><BR>
-		{ % endfor %}
+		{% endfor %}
 		You will receive an email with the details
 		</div><BR><BR>
 		
-		{ %include 'common.html' }
+		{% include 'common.html' %}
