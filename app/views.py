@@ -50,15 +50,16 @@ def bookedDesks():
 @app.route('/addHotDesk')
 def addHotDesk():
 	user = {'nickname' : 'Subodh'} ##fake user
-	addDesk = addSeatForm()
+	addDesk = addSeatForm(request.form)
 	return render_template("addHotDesk.html", user=user, form=addDesk)
 	
 @app.route('/confirmAddDesk', methods=['GET', 'POST'])
 def confirmAddDesk():
-	user = {'nickname' : 'Subodh'} ##fake user]
+	user = {'nickname' : 'Subodh'} ##fake user
 	Desk = dict()
-	form = addSeatForm()
-	if form.validate_on_submit():
+	form = addSeatForm(request.form)
+	if request.method == 'POST' and form.validate():
+		print("in the reqest data colelction"
 		Desk['ondate'] = form.indate.data
 		Desk['floor'] = form.infloor.data
 		Desk['deskno'] = form.indeskno.data

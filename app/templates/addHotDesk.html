@@ -3,6 +3,7 @@
 		<title>HotDeskApp Add Seat</title>
 	</head>
 	<body>
+	<script src="static/HotDesk.js"></script>
 		<h1>Hi, {{ user.nickname}}! </h1>
 		
 		<div><p>Good choise that you decided to add your desk to the HotDesk Pool</p></div>
@@ -11,7 +12,7 @@
 			<FIELDSET>
 				<BR>Please enter date in DD/MM/YYYY format <BR>
 				<BR>Your desk is free on 	: {{ form.indate(size=10) }}
-				<BR>Your desk is on floor 	: {{ form.infloor(size=2) }}
+				<BR>Your desk is on floor 	: {{ form.infloor(size=4) }}
 				<BR>Your desk number is 	: {{ form.indeskno(size=4) }}
 				<BR>Any comments to add 	: {{ form.inremark() }}
 				<BR>{{form.submit}}
