@@ -16,10 +16,10 @@
 			<TBODY>
 				{% for desk in allocatedDesk %}
 				<TR>
-					<THEAD>{{desk.floor }}
-					<THEAD>{{desk.deskno }}
-					<THEAD>{{desk.free_node }}
-					<THEAD>{{desk.remark }}
+					<TD>{{desk.floor }}
+					<TD>{{desk.deskno }}
+					<TD>{{desk.free_date }}
+					<TD>{{desk.remark }}
 				{% endfor %}
 			</TBODY>
 		</TABLE><BR>

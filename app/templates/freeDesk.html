@@ -15,10 +15,10 @@
 					<TD>Comments
 			<THEAD>
 			<TBODY>
-			<FORM action="/bookedDesk" method="POST">
+			<FORM action="/confirmBooking" method="POST">
 				{% for desk in hotdesks %}
 				<TR>
-					<TD><BUTTON type="submit" name="bookedDesk" value={{ desk.rowid }}>Book it</Button>
+					<TD><BUTTON type="submit" name="submit" value={{ desk.rowid }}>Book it</Button>
 					<TD>{{ desk.floor }}
 					<TD>{{ desk.deskno }}
 					<TD>{{ desk.free_date }}

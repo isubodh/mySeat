@@ -73,7 +73,7 @@ def AddDesk(atFloor, Desk, onDate, Rem):
 	conn.commit()
 	
 
-def allocateDesk():
+def allocatedDesk():
 	allocateDesk = list()
 	conn = sqlite3.connect('HotDesk.sqlite')
 	cursor = conn.cursor()
@@ -97,6 +97,7 @@ def allocateDesk():
 
 # Book a desk
 def bookDesk(index):
+	print("Request with : ", index)
 	bookedDesk = list()
 	if not index:
 		return bookedDesk
