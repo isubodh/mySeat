@@ -11,10 +11,10 @@
 		{{ form.hidden_tag() }}
 			<FIELDSET>
 				<BR>Please enter date in DD/MM/YYYY format <BR>
-				<BR>Your desk is free on 	: {{ form.indate(size=10) }}
-				<BR>Your desk is on floor 	: {{ form.infloor(size=4) }}
-				<BR>Your desk number is 	: {{ form.indeskno(size=4) }}
-				<BR>Any comments to add 	: {{ form.inremark() }}
+				<BR>{{ form.indate.label 	}} {{ form.indate(size=10) 	}}
+				<BR>{{ form.infloor.label 	}} {{ form.infloor(size=4) 	}}
+				<BR>{{ form.indeskno.label 	}} {{ form.indeskno(size=4) }}
+				<BR>{{ form.inremark.label 	}} {{ form.inremark() 		}}
 				<BR>{{form.submit}}
 			</FIELDSET>
 		

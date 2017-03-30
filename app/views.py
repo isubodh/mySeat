@@ -50,7 +50,7 @@ def bookedDesks():
 @app.route('/addHotDesk')
 def addHotDesk():
 	user = {'nickname' : 'Subodh'} ##fake user
-	addDesk = addSeatForm(request.form)
+	addDesk = addSeatForm()
 	return render_template("addHotDesk.html", user=user, form=addDesk)
 	
 @app.route('/confirmAddDesk', methods=['GET', 'POST'])
@@ -58,15 +58,16 @@ def confirmAddDesk():
 	user = {'nickname' : 'Subodh'} ##fake user
 	Desk = dict()
 	form = addSeatForm(request.form)
-	if request.method == 'POST' and form.validate():
-		print("in the reqest data colelction"
-		Desk['ondate'] = form.indate.data
-		Desk['floor'] = form.infloor.data
-		Desk['deskno'] = form.indeskno.data
-		Desk['remark'] = form.inremark.data
-		dao.AddDesk( Desk['floor'], Desk['deskno'], Desk['ondate'], Desk['remark'])
-		print(Desk)
-		return render_template("confrimAddDesk.html", user=user, Desk=Desk)
+
+	if request.method == "POST":
+		try:
+			Desk['ondate'] = str(request.form['indate'])					#form.indate.data
+			Desk['floor'] =  str(request.form['infloor'])					#form.infloor.data
+			Desk['deskno'] = str(request.form['indeskno'])					#form.indeskno.data
+			Desk['remark'] = str(request.form['inremark'])					#form.inremark.data
+			dao.AddDesk( Desk['floor'], Desk['deskno'], Desk['ondate'], Desk['remark'])
+		except Exception as e:
+			return ("<p>Error : %s</p>" %e)
+		return render_template("confirmAddDesk.html", user=user, Desk=Desk)
 	else:
 		return render_template("addHotDesk.html", user=user, form=form)
-		
